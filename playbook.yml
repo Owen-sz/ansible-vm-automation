@@ -1,12 +1,12 @@
 ---
 - name: Configure VMs
-  hosts: all
+- hosts: all
+  become: true
   roles:
     - user-setup
-  remote_user: root
-  become: true
+  # remote_user: root
 
-- import_playbook: user-setup/tasks/main.yml
-- import_playbook: ssh-keys/tasks/main.yml
-- import_playbook: fail2ban/tasks/main.yml
-- import_playbook: dns/tasks/main.yml
+- import_playbook: roles/user-setup/tasks/main.yml
+- import_playbook: roles/ssh-keys/tasks/main.yml
+- import_playbook: roles/fail2ban/tasks/main.yml
+- import_playbook: roles/dns/tasks/main.yml
