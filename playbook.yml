@@ -4,13 +4,16 @@
   remote_user: root
   become: true
   roles:
-    - user-setup
+    - usersetup
+    - sshkeys
+    - fail2ban
+    - dns
   # remote_user: root
 
 - name: "User setup"
-  import_playbook: roles/user-setup/tasks/main.yml
+  import_playbook: roles/usersetup/tasks/main.yml
 - name: "SSH-keys"
-  import_playbook: roles/ssh-keys/tasks/main.yml
+  import_playbook: roles/sshkeys/tasks/main.yml
 - name: "Fail2ban"
   import_playbook: roles/fail2ban/tasks/main.yml
 - name: "DNS"

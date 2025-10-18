@@ -1,6 +1,5 @@
 ---
 - name: Pull GitHub SSH keys
-- hosts: 127.0.0.1
   connection: local
   #  vars:
   #    my_users:
