@@ -1,6 +1,8 @@
 ---
 - name: Configure VMs
-  hosts: localhost
+  hosts: all
+  roles:
+    - user-setup
   remote_user: root
   become: true
 
