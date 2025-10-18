@@ -1,0 +1,16 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  #  vars:
+  #    my_users:
+  tasks:
+    - name: Retrieving all keys from GitHub
+      shell: /usr/bin/curl https://github.com/{{ item.value }}.keys >> ~/.ssh/authorized_keys
+      register: ssh_keys
+      with_dict: my_users
+#    - name: Adding keys to authorized_keys
+#      authorized_key: user=belminf key="{{ item.stdout }}" path=/home/belminf/test_auth state=present
+#      with_items: ssh_keys.results
+#      ignore_errors: yes
+
+#       shell: /usr/bin/curl https://github.com/{{ item.value }}.keys 2> /dev/null

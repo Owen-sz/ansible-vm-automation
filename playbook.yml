@@ -1,0 +1,8 @@
+---
+- name: Configure VMs
+  hosts: localhost
+  remote_user: root
+  become: true
+
+  tasks:
+    - name: lock root password

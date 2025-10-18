@@ -1,0 +1,41 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install fail2ban
+      apt:
+        name: fail2ban
+        state: present
+      when: ansible_os_family == 'Debian'
+      become: true
+
+    - name: Install ufw
+      apt:
+        name: ufw
+        state: present
+      when: ansible_os_family == 'Debian'
+      become: true
+
+    - name: Start fail2ban service
+      service:
+        name: fail2ban
+        state: started
+      become: true
+
+    - name: Enable ufw service
+      service:
+        name: ufw
+        enabled: true
+      become: true
+
+    - name: Start ufw service
+      service:
+        name: ufw
+        state: started
+      become: true
+
+    - name: Enable ufw service
+      service:
+        name: ufw
+        enabled: true
+      become: true
