@@ -4,5 +4,7 @@
   remote_user: root
   become: true
 
-  tasks:
-    - name: lock root password
+- import_playbook: user-setup/tasks/main.yml
+- import_playbook: ssh-keys/tasks/main.yml
+- import_playbook: fail2ban/tasks/main.yml
+- import_playbook: dns/tasks/main.yml
