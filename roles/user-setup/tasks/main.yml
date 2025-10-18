@@ -6,10 +6,10 @@
 #     groups: admin append=yes
 #   when: assigned_role  == "yes"
 
-- name: Create user "{{ username }}" without admin access
+- remote_user: "{{username}}"
   user:
     name: "{{ username }}"
     password: "{{ password | password_hash('sha512') }}"
-#   when: assigned_role == "no"
+#    when: assigned_role == "no"
 # - name: Expire password for user "{{ username }}"
 #   shell: chage -d 0 "{{ username }}"

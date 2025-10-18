@@ -1,1 +1,1 @@
-ansible-playbook -i inventory playbook.yml -e "username=hello password=hello assigned_role=yes"
+ansible-playbook -i inventory playbook.yml -e "username=X password=X assigned_role=yes"

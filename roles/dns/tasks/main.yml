@@ -1,6 +1,5 @@
----
 - name: Change DNS server
-- hosts: all
+  # host: "all"
   become: true
   roles:
     - role: SamanKhalife.changing_dns

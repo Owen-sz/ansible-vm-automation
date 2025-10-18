@@ -1,12 +1,17 @@
 ---
-- name: Configure VMs
-- hosts: all
+- name: "Configure VMs"
+  hosts: all
+  remote_user: root
   become: true
   roles:
     - user-setup
   # remote_user: root
 
-- import_playbook: roles/user-setup/tasks/main.yml
-- import_playbook: roles/ssh-keys/tasks/main.yml
-- import_playbook: roles/fail2ban/tasks/main.yml
-- import_playbook: roles/dns/tasks/main.yml
+- name: "User setup"
+  import_playbook: roles/user-setup/tasks/main.yml
+- name: "SSH-keys"
+  import_playbook: roles/ssh-keys/tasks/main.yml
+- name: "Fail2ban"
+  import_playbook: roles/fail2ban/tasks/main.yml
+- name: "DNS"
+  import_playbook: roles/dns/tasks/main.yml
